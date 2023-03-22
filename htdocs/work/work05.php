@@ -19,43 +19,37 @@
     
     //要件2 ランダムに生成された1~10の正の整数（random01, random02）が判定され、下記の例ように(1)生成された数(2)どちらが大きいか(3)3の倍数の個数が表示される。
 
-// 違う数の場合「random01 = 3, random02 = 4 です。 random02の方が大きいです。2つの数字の中には3の倍数が1つ含まれています。」
-// 同じ数の場合「random01 = 3, random02 = 3 です。 2つは同じ数です。2つの数字の中には3の倍数が2つ含まれています。」
-// 3の倍数が含まれていない場合、後半の文章は「2つの数字の中に3の倍数が含まれていません」と表示
-        $random01 = rand(1,10); //ランダムに生成された1~10の正の整数（random01, random02）が判定
+    // 違う数の場合「random01 = 3, random02 = 4 です。 random02の方が大きいです。2つの数字の中には3の倍数が1つ含まれています。」
+    // 同じ数の場合「random01 = 3, random02 = 3 です。 2つは同じ数です。2つの数字の中には3の倍数が2つ含まれています。」
+    // 3の倍数が含まれていない場合、後半の文章は「2つの数字の中に3の倍数が含まれていません」と表示
+        
+        $random01 = rand(1,10); 
         $random02 = rand(1,10);
-        $num01;
-        $num02;
-        $num=$num01+$num02;
-        print 'random01は'.$random01.'です。</p>'; //(1)生成された数
-        print 'random02は'.$random02.'です。</p>'; 
 
-        if($random01%3===0){
-            $num01=1;
-            print '<p>random01は3の倍数です。</p>';
-        }else{
-            $num01=0;
-            print '<p>random01は3の倍数ではありません。</p>';
-        };
-        if($random02%3===0){
-            $num02=1;
-            print '<p>random02は3の倍数です。</p>';
-        }else{
-            $num01=0;
-            print '<p>random01は3の倍数ではありません。</p>';
-        };
-        if(($random01>$random02)&&$num>0){
-            print '<p>random01 = '.$random01.'random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が'.$num.'つ含まれています。</p>';
-        }elseif(($random01>$random02)&&$num===0){
-            print '<p>random01 = '.$random01.'random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が含まれていません。</p>';
-        }elseif(($random01<$random02)&&$num>0){
-            print '<p>random01 = '.$random01.'random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が'.$num.'つ含まれています。</p>';
-        }elseif(($random01<$random02)&&$num===0){
-            print '<p>random01 = '.$random01.'random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が含まれていません。</p>';
-        }elseif(($random01===$random02)&&$num>0){
-            print '<p>random01 = '.$random01.'random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が'.$num.'つ含まれています。</p>';
-        }elseif(($random01===$random02)&&$num===0){
-            print '<p>random01 = '.$random01.'random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が含まれていません。</p>';
+        if($random01>$random02){
+            if($random01%3===0&&$random02%3===0){
+                print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が2つ含まれています。</p>';
+            }elseif($random01%3===0||$random02%3===0){
+                print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が1つ含まれています。</p>';
+            }elseif($random01%3!==0&&$random02%3!==0){
+                print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が含まれていません。</p>';
+            }
+        }elseif($random01<$random02){
+            if($random01%3===0&&$random02%3===0){
+                print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が2つ含まれています。</p>';
+            }elseif($random01%3===0||$random02%3===0){
+                print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が1つ含まれています。</p>';
+            }elseif($random01%3!==0&&$random02%3!==0){
+                print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が含まれていません。</p>';
+            }
+        }elseif($random01===$random02){
+            if($random01%3===0&&$random02%3===0){
+                print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が2つ含まれています。</p>';
+            }elseif($random01%3===0||$random02%3===0){
+                print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が1つ含まれています。</p>';
+            }elseif($random01%3!==0&&$random02%3!==0){
+                print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が含まれていません。</p>';
+            };
         };
     ?>
 </body>

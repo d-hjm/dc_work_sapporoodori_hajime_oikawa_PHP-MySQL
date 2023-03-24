@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>WORK05</title>
+    <title>WORK08</title>
 </head>
 <body>
     <?php 
@@ -34,40 +34,43 @@
             case $random01>$random02:
                 switch(true){
                     case $random01%3===0&&$random02%3===0:
-                    print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が2つ含まれています。</p>';
-                    break; 
+                        print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が2つ含まれています。</p>';
+                        break; 
                     case $random01%3===0||$random02%3===0:
-                    print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が1つ含まれています。</p>';
-                    break; 
+                        print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が1つ含まれています。</p>';
+                        break; 
                     case $random01%3!==0&&$random02%3!==0:
-                    print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が含まれていません。</p>';
-                    break; 
+                        print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random01の方が大きいです。2つの数字の中には3の倍数が含まれていません。</p>';
+                        break; 
                 }
+                break;
             case $random01<$random02:
                 switch(true){
                     case $random01%3===0&&$random02%3===0:
-                    print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が2つ含まれています。</p>';
-                    break; 
+                        print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が2つ含まれています。</p>';
+                        break; 
                     case $random01%3===0||$random02%3===0:
-                    print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が1つ含まれています。</p>';
-                    break; 
+                        print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が1つ含まれています。</p>';
+                        break; 
                     case $random01%3!==0&&$random02%3!==0:
-                    print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が含まれていません。</p>';
-                    break;
+                        print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。random02の方が大きいです。2つの数字の中には3の倍数が含まれていません。</p>';
+                        break;
                 }
+                break;
             case $random01===$random02:
                 switch(true){
                     case $random01%3===0&&$random02%3===0:
-                    print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が2つ含まれています。</p>';
-                    break;
+                        print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が2つ含まれています。</p>';
+                        break;
                     case $random01%3===0||$random02%3===0:
-                    print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が1つ含まれています。</p>';
-                    break;
+                        print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が1つ含まれています。</p>';
+                        break;
                     case $random01%3!==0&&$random02%3!==0:
-                    print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が含まれていません。</p>';
-                    break;
-                };
-        };
+                        print '<p>random01 = '.$random01.'、random02 = '.$random02.'です。2つは同じ数です。2つの数字の中には3の倍数が含まれていません。</p>';
+                        break;
+                }
+                break;
+        }
     ?>
 </body>
 </html>

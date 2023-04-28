@@ -27,16 +27,14 @@
             }
         }
 
-        $p=print '*';
+        $p='*';
         
-        for($l=1;$l<=9;$l++){
-            if($l>9):
-                print '<p>'.$l*$p.'</p>';
-                print '!';
-            else:
-                print '<p>'.$l*$p.'</p>';
-                print '!';
-                print '<p>'.($l+1)*$p.'</p>';
+        for($l=1;$l<=10;$l++){
+            for($n=1;$n<=$l;$n++){
+                print '*';
+            }
+            if($l<10):
+                print '<p>!</p>';
             endif;
         }
     ?>

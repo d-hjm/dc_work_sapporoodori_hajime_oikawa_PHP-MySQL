@@ -12,8 +12,10 @@
     ?>
     <pre>
         <?php
-            print_r($food);
-            print $food[0][2];
+                print_r($food);
+                print $food[0][2];
+
+            
         ?>
     </pre>
 </body>

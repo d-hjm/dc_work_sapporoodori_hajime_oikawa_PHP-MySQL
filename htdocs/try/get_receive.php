@@ -12,6 +12,7 @@
             } else {
                 print '入力されていません';
             }
+            
         ?>
     </body>
 </html>

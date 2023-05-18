@@ -5,13 +5,23 @@
         <title>WORK16</title>
     </head>
     <body>
-        <div>フォームに入力した内容を取得する</div>
         <?php
-            if( isset( $_GET['name_text'] )&&$_GET['check']!=) {
-                print '入力した内容： ' . htmlspecialchars($_GET['name_text'], ENT_QUOTES, 'UTF-8');
-            } else {
-                print '入力されていません';
+            if( isset( $_GET['name_text'] ) && isset( $_GET['check[]'] )) {
+                print  htmlspecialchars($_GET['name_text']."は".$_GET['check[]']."です。", ENT_QUOTES, 'UTF-8');
+            }else if(isset( $_GET['name_text'] )&&isset( $_GET['check[]'] )===null){
+                print 'チェックボックスにチェックを入れてください。';
+            }else if(isset( $_GET['name_text'] )===""&&isset( $_GET['check[]'] )){
+                print '名前を入力してください';
+            }else{
+                print '何か入力して…';
             }
+        ?>
+        <pre>
+            <?php 
+            print_r($_GET);
+            ?>
+        </pre>
+            
         ?>
     </body>
 </html>

@@ -26,12 +26,8 @@
         ?>
         <pre>
             <?php
-            echo "<p>".print_r($checkbox)."</p>";
-            print_r(getAllCombinations($check));
+            echo print_r($checkbox);
             ?>
         </pre>
-        <?php 
-            var_dump($check);
-        ?>
     </body>
 </html>

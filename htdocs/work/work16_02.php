@@ -26,7 +26,7 @@
         ?>
         <pre>
             <?php
-            echo "<p>".print_r($checkbox);."</p>";
+            echo "<p>".print_r($checkbox)."</p>";
             print_r(getAllCombinations($check));
             ?>
         </pre>

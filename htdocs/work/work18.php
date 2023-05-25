@@ -27,6 +27,8 @@
  
             $max_page = ceil($customers_num / MAX); // トータルページ数
 
+            print_r($max_page);
+
             
  
             // データ表示、ページネーションを実装

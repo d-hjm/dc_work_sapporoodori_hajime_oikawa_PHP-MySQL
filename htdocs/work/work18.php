@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>WORK18</title>
     </head>
+    <style>
+            table,tr,th,td{
+            border: solid 1px black;;
+            }
+        </style>
     <body>
         <?php
             define('MAX','3'); // 1ページの表示数
@@ -22,31 +27,46 @@
  
             $max_page = ceil($customers_num / MAX); // トータルページ数
 
+            
+ 
             // データ表示、ページネーションを実装
             if(!isset($_GET['page_id'])){ // $_GET['page_id'] はURLに渡された現在のページ数
                 $now = 1; // 設定されてない場合は1ページ目にする
             }else{
                 $now = $_GET['page_id'];
             }
-             
+
             $start_no = ($now - 1) * MAX; // 配列の何番目から取得すればよいか
-             
+
             // array_sliceは、配列の何番目($start_no)から何番目(MAX)まで切り取る関数
-            $disp_data = array_slice($customers, $start_no, MAX, true);
-             
-            foreach($disp_data as $val){ // データ表示
-                echo $val['name']. '　'.$val['age']. '<br />';
-            }
+            $disp_data = array_slice($customers, $start_no, MAX, true);            
+        ?>
+
+        <table>
+            <tr>
+                <th>名前</th><th>年齢</th>
+            </tr>
+            <?php foreach($disp_data as $val): ?> 
+                <tr>
+                    <td><?php echo $val['name']; ?></td>
+                    <td><?php echo $val['age']; ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+        
+
+        <?php
+
              
             for($i = 1; $i <= $max_page; $i++){ // 最大ページ数分リンクを作成
                 if ($i == $now) { // 現在表示中のページ数の場合はリンクを貼らない
-                    echo $now. '　'; 
+                    echo $now.' '; 
                 } else {
-                    echo '<a href='/work18.php?page_id='. $i. '')>'. $i. '</a>'. '　';
+                    echo '<a href="./work18.php?page_id='.$i.'">'.$i.'</a>'." ";
                 }
             }
              
             ?>
-        ?>
+        
     </body>
 </html>

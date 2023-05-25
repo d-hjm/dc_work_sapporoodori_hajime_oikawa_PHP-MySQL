@@ -34,6 +34,8 @@
                     print '何か入力して…';
                 }
             }
+
+        var_dump($_GET["page_id"]);
         ?>
          <pre>
             <?php

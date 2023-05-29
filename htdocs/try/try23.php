@@ -12,6 +12,7 @@
             fwrite($fp, 'ファイルへ書き込む');	// ファイルへ書き込む
 
             fclose($fp);	
+
         ?>
 </body>
 </html>

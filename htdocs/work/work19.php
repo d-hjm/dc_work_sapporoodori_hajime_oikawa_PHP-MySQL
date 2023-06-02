@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,30 +9,43 @@
 </head>
 <body>
     <form method="post">
-        <?php $fp_w=fopen("read&write.txt","w"); ?>
+            <div ><input type="text" name="">
             <div>タイトル</div>
-            <input type="text" name="textarea"><?php $title=""; ?> 
+            <input type="text" name="title">
             <br>
             <div>書き込み内容</div>
-            <input type="text" name="textarea"><?php $content=""; ?>
+            <input type="text" name="content">
             <br>
             <br>
             <input type="submit" value="送信">
             <br>
-        <?php
-            fwrite($fp_w,$title.":".$content);
-            
-
-            $fp_r=fopen("read&write.txt","r");
-            $line=fget($fp_r);
-            echo $line;
-
-            fclose($fp_r);
-        ?>
     </form>
+    <?php
 
+        $title = $_POST["title"];
+        $content = $_POST["content"]."\n";
 
+        $fp_w=fopen("read&write.txt","a");
+        fwrite($fp_w,$title.":".$content);
 
-        
+        $data = file_get_contents("read&write.txt");
+        $data = explode( "\n", $data);
+        $cnt = count($data);
+        $array = array_reverse($data);
+        if($title !== ""&&$content !== ""){
+            for($i=0;$i<$cnt;$i++){
+                echo "$array[$i]<br>";
+            }
+        }else{
+            $miss="入力情報が不足しています<br>";
+            for($i=0;$i<$cnt;$i++){
+                echo "$array[$i]<br>";
+            }
+        }
+
+        // ftruncate($fp_w,0);
+        // print_r($data);
+        fclose($fp_w);
+    ?>
 </body>
 </html>

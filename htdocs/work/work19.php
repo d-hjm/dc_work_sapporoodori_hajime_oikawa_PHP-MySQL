@@ -9,7 +9,7 @@
 </head>
 <body>
     <form method="post">
-            <div ><input type="text" name="">
+            <div><?php echo $shortage; ?></div>
             <div>タイトル</div>
             <input type="text" name="title">
             <br>
@@ -21,7 +21,6 @@
             <br>
     </form>
     <?php
-
         $title = $_POST["title"];
         $content = $_POST["content"]."\n";
 
@@ -33,14 +32,18 @@
         $cnt = count($data);
         $array = array_reverse($data);
         if($title !== ""&&$content !== ""){
-            for($i=0;$i<$cnt;$i++){
-                echo "$array[$i]<br>";
-            }
+            for($i=0;$i<$cnt;$i++): ?>
+                <ul>   
+                    <li> <?php echo "$array[$i]<br>"; ?> <li>
+                </ul>
+                <?php endfor;
         }else{
-            $miss="入力情報が不足しています<br>";
-            for($i=0;$i<$cnt;$i++){
-                echo "$array[$i]<br>";
-            }
+            $shortage="入力情報が不足しています<br>";
+            for($i=0;$i<$cnt;$i++): ?>
+                <ul>   
+                    <li> <?php echo "$array[$i]<br>"; ?> <li>
+                </ul>
+                <?php endfor;
         }
 
         // ftruncate($fp_w,0);

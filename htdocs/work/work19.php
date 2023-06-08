@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,6 +5,8 @@
     <title>WORK19</title>
 </head>
 <body>
+    <?php $shortage="" ?>
+
     <form method="post">
             <div><?php echo $shortage; ?></div>
             <div>タイトル</div>
@@ -20,6 +19,7 @@
             <input type="submit" value="送信">
             <br>
     </form>
+    
     <?php
         $title = $_POST["title"];
         $content = $_POST["content"]."\n";
@@ -31,23 +31,24 @@
         $data = explode( "\n", $data);
         $cnt = count($data);
         $array = array_reverse($data);
-        if($title !== ""&&$content !== ""){
+    ?>
+        <ul>
+    <?php if($title !== ""&&$content !== ""):
             for($i=0;$i<$cnt;$i++): ?>
-                <ul>   
-                    <li> <?php echo "$array[$i]<br>"; ?> <li>
-                </ul>
+                    <li> <?php echo "$array[$i]<br>"; ?> </li>
                 <?php endfor;
-        }else{
+        else:
             $shortage="入力情報が不足しています<br>";
-            for($i=0;$i<$cnt;$i++): ?>
-                <ul>   
-                    <li> <?php echo "$array[$i]<br>"; ?> <li>
-                </ul>
+            array_splice($array,0);
+            for($i=0;$i<$cnt;$i++): ?> 
+                    <li> <?php echo "$array[$i]<br>"; ?> </li>
                 <?php endfor;
-        }
-
+        endif;
+    ?>
+        </ul>
+    <?php
         // ftruncate($fp_w,0);
-        // print_r($data);
+        print_r($array);
         fclose($fp_w);
     ?>
 </body>
